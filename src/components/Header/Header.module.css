@@ -1,3 +1,66 @@
+/* Header全体のスタイル */
 .header {
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+/* ロゴ画像のスタイル */
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+/* ナビゲーションメニュー */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* ナビゲーションリンクのスタイル */
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #0070f3;
+}
+
+/* ボタンスタイル（例として） */
+.ctaButton {
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #005bb5;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+  }
 }
