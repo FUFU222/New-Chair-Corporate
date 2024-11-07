@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
-      <body>
+      <body className={ZenKakuGothicNew.className}>
         <Header />
         <main>{children}</main>
         <Footer />

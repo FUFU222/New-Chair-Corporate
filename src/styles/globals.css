@@ -10,9 +10,8 @@
 html,
 body {
   height: 100%;
-  font-family: Arial, sans-serif; /* 基本のフォントファミリー */
   line-height: 1.6;
-  color: #333; /* テキストの基本カラー */
+  color: #333;
 }
 
 body {
@@ -21,16 +20,14 @@ body {
   min-height: 100vh;
 }
 
-/* 画像の最大幅制限 */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* リンクのスタイル */
 a {
-  color: #0070f3; /* リンクのカラー */
+  color: #333; /* リンクのカラー */
   text-decoration: none;
 }
 
