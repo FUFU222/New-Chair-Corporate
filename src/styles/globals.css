@@ -20,6 +20,10 @@ body {
   min-height: 100vh;
 }
 
+section {
+  height: 160px;
+}
+
 img {
   max-width: 100%;
   height: auto;

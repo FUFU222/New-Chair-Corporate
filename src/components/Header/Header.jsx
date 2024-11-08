@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -12,6 +12,12 @@ import styles from "./Header.module.css"
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
+  const handleClick = useCallback((event) => {
+    event.stopPropagation()
+    setOpen((prevOpen) => !prevOpen)
+  }, [])
+
   return (
     <header className={styles.header}>
       <Link href="#">
@@ -26,7 +32,7 @@ export default function Header() {
       <ToggleButton
         open={open}
         label="メニューを開きます"
-        onClick={() => setOpen(!open)}
+        onClick={handleClick}
         />
       <Navigation
         id="navigation"

@@ -12,24 +12,6 @@
   width: auto;
 }
 
-/* ナビゲーションメニュー */
-.navList {
-  display: flex;
-  gap: 1.5rem;
-}
-
-/* ナビゲーションリンクのスタイル */
-.navLink {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.navLink:hover {
-  color: #0070f3;
-}
-
 /* ボタンスタイル（例として） */
 .ctaButton {
   padding: 0.5rem 1rem;
@@ -48,7 +30,6 @@
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
     align-items: flex-start;
   }
 

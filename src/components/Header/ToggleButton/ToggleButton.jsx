@@ -1,19 +1,3 @@
-// import styles from "./ToggleButton.module.css"
-
-// export default function ToggleButton({open, onClick}) {
-
-//   console.log(open)
-//   return (
-//     <div className={open ? styles.open : styles.close}
-//       onClick={onClick}>
-//       <span className={styles.line}></span>
-//       <span className={styles.line}></span>
-//       <span className={styles.line}></span>
-//       <p>{open ? "Close" : "Menu"}</p>
-//     </div>
-//   )
-// }
-
 import styles from "./ToggleButton.module.css";
 
 export default function ToggleButton({ open, onClick }) {
