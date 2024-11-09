@@ -8,7 +8,9 @@ export default function Hero() {
           <h1 className={styles.companyName}>
             CHAIRMAN
           </h1>
-          <p>CHAIRMANはSNSマーケティングを通じて<br/>
+        </div>
+        <div className={styles.box}>
+          <p className={styles.companyDescription}>CHAIRMANはSNSマーケティングを通じて<br/>
           ビジネスチャンスや新たな価値を創造します。</p>
         </div>
       </div>
