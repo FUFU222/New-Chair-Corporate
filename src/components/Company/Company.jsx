@@ -1,7 +1,9 @@
+import Title from "../Title/Title"
+
 export default function Company () {
   return (
     <section>
-      Company
+      <Title sectionId={5}/>
     </section>
   )
 }

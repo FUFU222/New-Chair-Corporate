@@ -1,0 +1,23 @@
+.section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+.box {
+  overflow: hidden;
+}
+
+.companyName {
+  margin: 0;
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: serif;
+  animation: textAnime 1s ease-in-out .5s forwards;
+  transform: translateY(100%);
+}
+
+@keyframes textAnime {
+  to {
+      transform: translateY(0px);
+  }
+}

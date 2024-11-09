@@ -1,7 +1,9 @@
+import Title from "../Title/Title"
+
 export default function TrackRecord () {
   return (
     <section>
-      TrackRecord
+      <Title sectionId={2}/>
     </section>
   )
 }
