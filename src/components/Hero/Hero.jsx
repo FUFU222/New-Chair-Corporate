@@ -1,27 +1,64 @@
+"use client"
+
+import { motion } from "framer-motion"
 import styles from "./Hero.module.css"
+import Image from "next/image"
+
+const textAnimation = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {delay:i * 0.08, duration: 0.5, ease: "easeOut"}
+  })
+}
+const descriptionAnimation = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.6 } },
+};
 
 export default function Hero() {
+  const title = "CHAIRMAN"
   return (
-    <section>
+    <section className={styles.heroContainer}>
       <div className={styles.textContainer}>
-        <div className={styles.box}>
           <h1 className={styles.companyName}>
-            CHAIRMAN
+            {title.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                custom={index}
+                initial="hidden"
+                animate="visible"
+                variants={textAnimation}
+                style={{display: "inline-block" }}
+              >
+                {char}
+              </motion.span>
+            ))}
           </h1>
-        </div>
-        <div className={styles.box}>
-          <p className={styles.companyDescription}>
-            CHAIRMANはSNSマーケティングを通じて
-          </p>
-        </div>
-        <div className={styles.box}>
-          <p className={styles.companyDescription}>
-            ビジネスチャンスや新たな価値を創造します。
-          </p>
-        </div>
+          <motion.p
+              className={styles.companyDescription}
+              initial="hidden"
+              animate="visible"
+              variants={descriptionAnimation}
+            >
+              CHAIRMANはSNSマーケティングを通じて
+            </motion.p>
+            <motion.p
+              className={styles.companyDescription}
+              initial="hidden"
+              animate="visible"
+              variants={descriptionAnimation}
+            >
+              ビジネスチャンスや新たな価値を創造します。
+            </motion.p>
       </div>
       <div className={styles.videoContainer}>
-        
+        <Image 
+        src="/images/iphone-mockup.png"
+        width={160}
+        height={400}
+        alt="iphoneのモック画像" />
       </div>
     </section>
   )
