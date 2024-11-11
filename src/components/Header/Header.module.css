@@ -1,47 +1,32 @@
-/* Header全体のスタイル */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  transition: transform 0.2s ease;
+  z-index: 100;
 }
 
-/* ロゴ画像のスタイル */
+.header.hidden {
+  transform: translateY(-100%); /* 上に隠す */
+}
+
 .logo {
   height: 40px;
   width: auto;
 }
 
-/* ボタンスタイル（例として） */
-.ctaButton {
-  padding: 0.5rem 1rem;
-  background-color: #0070f3;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.ctaButton:hover {
-  background-color: #005bb5;
-}
-
-/* レスポンシブ対応 */
 @media (max-width: 768px) {
-  .header {
-    align-items: flex-start;
-  }
 
   .nav {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
     margin-top: 1rem;
-  }
-
-  .ctaButton {
-    width: 100%;
-    text-align: center;
   }
 }

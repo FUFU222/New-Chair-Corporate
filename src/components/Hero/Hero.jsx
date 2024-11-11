@@ -22,43 +22,53 @@ export default function Hero() {
   return (
     <section className={styles.heroContainer}>
       <div className={styles.textContainer}>
-          <h1 className={styles.companyName}>
-            {title.split("").map((char, index) => (
-              <motion.span
-                key={index}
-                custom={index}
-                initial="hidden"
-                animate="visible"
-                variants={textAnimation}
-                style={{display: "inline-block" }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </h1>
-          <motion.p
-              className={styles.companyDescription}
+        <h1 className={styles.companyName}>
+          {title.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              custom={index}
               initial="hidden"
               animate="visible"
-              variants={descriptionAnimation}
+              variants={textAnimation}
+              style={{display: "inline-block" }}
             >
-              CHAIRMANはSNSマーケティングを通じて
-            </motion.p>
-            <motion.p
-              className={styles.companyDescription}
-              initial="hidden"
-              animate="visible"
-              variants={descriptionAnimation}
-            >
-              ビジネスチャンスや新たな価値を創造します。
-            </motion.p>
+              {char}
+            </motion.span>
+          ))}
+        </h1>
+        <motion.p
+          className={styles.companyDescription}
+          initial="hidden"
+          animate="visible"
+          variants={descriptionAnimation}
+        >
+          CHAIRMANはSNSマーケティングを通じて
+        </motion.p>
+        <motion.p
+          className={styles.companyDescription}
+          initial="hidden"
+          animate="visible"
+          variants={descriptionAnimation}
+        >
+          ビジネスチャンスや新たな価値を創造します。
+        </motion.p>
       </div>
       <div className={styles.videoContainer}>
-        <Image 
-        src="/images/iphone-mockup.png"
-        width={160}
-        height={400}
-        alt="iphoneのモック画像" />
+        <Image
+          className={styles.mockup} 
+          src="/images/iphone-mockup.png"
+          width={160}
+          height={400}
+          alt="iphoneのモック画像" />
+        <video
+          className={styles.video}
+          src="/videos/CHAIRMAN.mp4"
+          width={160}
+          height={500}
+          autoPlay
+          muted
+          loop
+        />
       </div>
     </section>
   )

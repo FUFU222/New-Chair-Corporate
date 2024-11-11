@@ -15,6 +15,9 @@
   margin: 4px 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+.toggleButton p {
+  margin: 0;
+}
 
 .openLine:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px); /* 最初のラインを斜めに */
