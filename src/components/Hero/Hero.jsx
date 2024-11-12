@@ -58,15 +58,13 @@ export default function Hero() {
           <Image
             className={styles.mockup} 
             src="/images/iphone-mockup.png"
-            width={500}
-            height={800}
+            width={396}
+            height={704}
             alt="iphoneのモック画像" />
           <div className={styles.videoContainer}>
             <video
               className={styles.video}
               src="/videos/CHAIRMAN.mp4"
-              width={360}
-              height={640}
               autoPlay
               muted
               loop
