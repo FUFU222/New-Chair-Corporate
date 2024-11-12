@@ -1,37 +1,109 @@
 .heroContainer {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
+  padding: 0 20px;
+  border-bottom-right-radius: 20%;
+  border-bottom-left-radius: 20%;
   position: relative;
+  z-index: 1;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
+  background: rgb(96,4,4);
+  background: linear-gradient(115deg, rgba(96,4,4,1) 0%, rgba(180,81,81,1) 55%, rgba(255,255,255,1) 100%);
 }
 
 .textContainer {
-  text-align: center;
+  text-align: left;
+  padding-left: 5%;
+  width: 100%;
 }
 
 .companyName {
-  font-size: 6rem;
+  font-size: 7rem;
   font-weight: bold;
   font-family: serif;
   margin: 0;
-  color: #333;
+  color:#fcfcfc;
+  z-index: 10;
 }
 
 .companyDescription {
-  text-align: left;
+  font-family: serif;
   font-size: 1.2rem;
-  color: #555;
+  color: #fcfcfc;
   margin-bottom: 8px;
   margin-left: 8px;
+  z-index: 10;
+}
+
+.phoneContainer {
+  position: absolute;
+  left: 50%;
+  width: 500px;
+  height: 700px;
+}
+
+.mockupContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mockup {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .videoContainer {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 2px;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.mockup .video{
-  position: absolute;
+
+.video {
+  width: 390px;
+  height: 680px;
+  border-radius: 14%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .heroContainer {
+    align-items: end;
+  }
+  .textContainer {
+    text-align: center;
+    padding-bottom: 30%;
+  }
+  .companyName {
+    font-size: 6rem;;
+  }
+  .companyDescription {
+    font-size: 1rem;
+  }
+  .phoneContainer {
+    top: 30%;
+    transform: translate(-50%, -30%);
+    width: 366px;
+    height: 520px;
+  }
+  .video {
+    width: 280px;
+    height: 500px;
+    border-radius: 12%;
+    object-fit: contain;
+  }
+
 }

@@ -53,22 +53,27 @@ export default function Hero() {
           ビジネスチャンスや新たな価値を創造します。
         </motion.p>
       </div>
-      <div className={styles.videoContainer}>
-        <Image
-          className={styles.mockup} 
-          src="/images/iphone-mockup.png"
-          width={160}
-          height={400}
-          alt="iphoneのモック画像" />
-        <video
-          className={styles.video}
-          src="/videos/CHAIRMAN.mp4"
-          width={160}
-          height={500}
-          autoPlay
-          muted
-          loop
-        />
+      <div className={styles.phoneContainer}>
+        <div className={styles.mockupContainer}>
+          <Image
+            className={styles.mockup} 
+            src="/images/iphone-mockup.png"
+            width={500}
+            height={800}
+            alt="iphoneのモック画像" />
+          <div className={styles.videoContainer}>
+            <video
+              className={styles.video}
+              src="/videos/CHAIRMAN.mp4"
+              width={360}
+              height={640}
+              autoPlay
+              muted
+              loop
+              preload="true"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )

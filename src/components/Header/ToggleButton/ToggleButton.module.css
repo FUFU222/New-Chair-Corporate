@@ -11,12 +11,13 @@
 .line {
   width: 30px; /* ラインの幅 */
   height: 3px; /* ラインの高さ */
-  background-color: black;
+  background-color: #fcfcfc;
   margin: 4px 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .toggleButton p {
   margin: 0;
+  color: #fcfcfc;
 }
 
 .openLine:nth-child(1) {
