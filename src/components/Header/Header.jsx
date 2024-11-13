@@ -1,34 +1,56 @@
 "use client"
 
 import { useState, useCallback, useEffect, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useCycle } from "framer-motion";
+import { useDimensions } from "./use-dimensions"
 import Image from "next/image";
 import Link from "next/link";
 
-import ToggleButton from "./ToggleButton/ToggleButton";
+import MenuToggle from "./MenuToggle/MenuToggle";
 import Navigation from "./Navigation/Navigation";
 
 import styles from "./Header.module.css";
 
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at calc(100% - 40px) 40px)`,
+    transition: {
+      type: "spring",
+      stiffness: 110,
+      restDelta: 2
+    }
+  }),
+  closed: {
+    clipPath: "circle(24px at calc(100% - 40px) 40px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 500,
+      damping: 40
+    }
+  }
+};
+
 export default function Header() {
-  const { scrollY } = useScroll();
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const containerRef = useRef(null);
+  const { height } = useDimensions(containerRef);
+
   const [isVisible, setIsVisible] = useState(true);
-  const [openMenu, setOpenMenu] = useState(false);
-  const lastScrollY = useRef(0); // lastScrollY を useRef で管理
+  const { scrollY } = useScroll();
+  const lastScrollY = useRef(0); 
 
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
       if (lastScrollY.current < latest) {
-        // スクロールダウン時にヘッダーを非表示
         setIsVisible(false);
       } else {
-        // スクロールアップ時にヘッダーを表示
         setIsVisible(true);
       }
-      lastScrollY.current = latest; // 最新のスクロール位置を lastScrollY に更新
+      lastScrollY.current = latest;
     });
 
-    return unsubscribe; // クリーンアップとして unsubscribe を返す
+    return unsubscribe;
   }, [scrollY]);
 
   const handleClick = useCallback((event) => {
@@ -52,8 +74,16 @@ export default function Header() {
           priority
         />
       </Link>
-      <ToggleButton openMenu={openMenu} label="メニューを開きます" onClick={handleClick} />
-      <Navigation id="navigation" openMenu={openMenu} />
+      <motion.nav
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+        custom={height}
+        ref={containerRef}
+      >
+        <motion.div className={styles.background} variants={sidebar} />
+        <Navigation />
+        <MenuToggle toggle={() => toggleOpen()} />
+      </motion.nav>
     </motion.header>
   );
 }
