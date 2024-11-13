@@ -14,11 +14,16 @@ html,
 body {
   height: 100%;
   line-height: 1.6;
+  max-width: 2560px;
   color: #333;
+  display: flex;
+}
+html {
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-  display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;

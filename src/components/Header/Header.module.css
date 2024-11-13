@@ -12,7 +12,7 @@
 }
 
 .header.hidden {
-  transform: translateY(-100%); /* 上に隠す */
+  transform: translateY(-100%);
 }
 
 .logo {
@@ -117,5 +117,16 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    min-height: 80px;
+    padding: 1rem 1.2rem;
+  }
+
+  .header ul {
+    padding: 8px;
+    top: 20%;
+    left: 22%;
+    width: 240px;
+  }
 
 }
