@@ -36,7 +36,7 @@
   right: 0;
   bottom: 0;
   width: 100vw;
-  background: #fff;
+  background: #f1f1f1;
 }
 
 .header button {
@@ -65,8 +65,7 @@
   padding: 25px;
   position: absolute;
   top: 20%;
-  left: 38%;
-  width: 230px;
+  left: 45%;
 }
 
 .header li {
@@ -76,31 +75,14 @@
   align-items: center;
   cursor: pointer;
 }
-.header li {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
 .header li svg path {
   fill: #fff;
 }
-
-.iconPlaceholder {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  flex: 40px 0;
-  margin-right: 20px;
-}
-
 .textPlaceholder {
-  border-radius: 5px;
-  width: 200px;
-  height: 20px;
+  font-size: 2rem;
+  padding: 1rem;
   flex: 1;
 }
-
 .refresh {
   padding: 10px;
   position: absolute;
@@ -116,17 +98,35 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .header {
-    min-height: 80px;
-    padding: 1rem 1.2rem;
+    min-height: 100px;
+    padding: 1.5rem 1.2rem;
   }
-
+  .header button {
+    top: 24px;
+    right:26px;
+    width: 64px;
+    height: 64px;
+  }
   .header ul {
     padding: 8px;
-    top: 20%;
-    left: 22%;
-    width: 240px;
+    top: 10%;
+    left: 40%;
+  }
+  .textPlaceholder {
+    font-size: 1rem;
+    padding: 1rem;
+    flex: 1;
   }
 
+}
+
+@media (max-width: 512px) {
+  .header button {
+    top: 24px;
+    right:20px;
+    width: 64px;
+    height: 64px;
+  }
 }

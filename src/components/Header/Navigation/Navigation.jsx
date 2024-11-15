@@ -21,4 +21,4 @@ export default function Navigation() {
   )  
 };
 
-const itemIds = [0, 1, 2, 3, 4];
+const itemIds = [0, 1, 2, 3, 4, 5];

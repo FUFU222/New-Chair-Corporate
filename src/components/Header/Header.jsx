@@ -12,23 +12,56 @@ import Navigation from "./Navigation/Navigation";
 import styles from "./Header.module.css";
 
 const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at calc(100% - 40px) 40px)`,
-    transition: {
-      type: "spring",
-      stiffness: 110,
-      restDelta: 2
+  open: (height = 1000) => {
+    let clipPosition, sizeAdjustment;
+
+    if (window.innerWidth <= 512) {
+      // スマートフォン
+      clipPosition = "calc(100%  - 48px) 52px";
+      sizeAdjustment = 800;
+    } else if (window.innerWidth <= 1024) {
+      // タブレット
+      clipPosition = "calc(100%  - 54px) 52px";
+      sizeAdjustment = 1200;
+    } else {
+      // デスクトップ
+      clipPosition = "calc(100% - 40px) 40px";
+      sizeAdjustment = 1500;
     }
-  }),
-  closed: {
-    clipPath: "circle(24px at calc(100% - 40px) 40px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 500,
-      damping: 40
+
+    return {
+      clipPath: `circle(${height * 2 + sizeAdjustment}px at ${clipPosition})`,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        restDelta: 2,
+      },
+    };
+  },
+  closed: () => {
+    let clipPosition;
+
+    if (window.innerWidth <= 512) {
+      // スマートフォン
+      clipPosition = "calc(100%  - 48px) 52px";
+    } else if (window.innerWidth <= 1024) {
+      // タブレット
+      clipPosition = "calc(100%  - 54px) 52px";
+    } else {
+      // デスクトップ
+      clipPosition = "calc(100% - 40px) 40px";
     }
-  }
+
+    return {
+      clipPath: `circle(24px at ${clipPosition})`,
+      transition: {
+        delay: 0.5,
+        type: "spring",
+        stiffness: 300,
+        damping: 40,
+      },
+    };
+  },
 };
 
 export default function Header() {
@@ -52,11 +85,6 @@ export default function Header() {
 
     return unsubscribe;
   }, [scrollY]);
-
-  const handleClick = useCallback((event) => {
-    event.stopPropagation();
-    setOpenMenu((prevOpen) => !prevOpen);
-  }, []);
 
   return (
     <motion.header

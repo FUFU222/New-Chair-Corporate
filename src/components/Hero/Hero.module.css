@@ -107,8 +107,8 @@
     text-align: left;
   }
   .phoneContainer {
-    top: 30%;
-    transform: translate(-50%, -30%);
+    top: 20%;
+    margin: 0 auto;
     width: 366px;
     height: 560px;
   }
