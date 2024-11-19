@@ -10,31 +10,40 @@ const BackgroundText = () => {
 
   useEffect(() => {
     setIsClient(true);
-    // console.log("anime")
     controls.start({
-      x: ["100%", "-100%"],
+      x: ["0%", "-100%"], // アニメーションを0%から-100%まで移動
       transition: {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 10,
+          duration: 100, // アニメーションの全体の時間
           ease: "linear",
         },
       },
     });
-  }, []);
+  }, [controls]);
 
-  if (!isClient) {
+  if (typeof window === "undefined") {
     return null;
   }
+
+  const text = "CHAIRMAN";
+  const repeatCount = 30; // テキストの繰り返し数を指定
 
   return (
     <div className={styles.backgroundTextContainer}>
       <motion.div className={styles.backgroundTextContent} animate={controls}>
-        <span className={styles.text}>
-          Next.jsプロジェクトでFramer Motionを使用し、背景に文字や画像が横に流れ続けるアニメーションを実装する際、Hydration Errorを避けるためには以下の点に注意する必要があります。
-          Next.jsプロジェクトでFramer Motionを使用し、背景に文字や画像が横に流れ続けるアニメーションを実装する際、Hydration Errorを避けるためには以下の点に注意する必要があります。
-        </span>
+        {/* テキストを複製してスムーズなループを実現 */}
+        {[...Array(repeatCount)].map((_, index) => (
+          <span key={index} className={styles.text}>
+            {text}
+          </span>
+        ))}
+        {[...Array(repeatCount)].map((_, index) => (
+          <span key={`clone-${index}`} className={styles.text}>
+            {text}
+          </span>
+        ))}
       </motion.div>
     </div>
   );

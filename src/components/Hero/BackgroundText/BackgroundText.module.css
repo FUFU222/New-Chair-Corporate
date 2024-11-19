@@ -1,17 +1,21 @@
-/* styles/MarqueeText.module.css */
 .backgroundTextContainer {
-  position: fixed;
+  position: absolute;
   top: 27%;
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
+  transform: rotate(-4deg);
 }
 
 .backgroundTextContent {
-  display: inline-block;
+  display: inline-flex; /* 複数のテキストを横並び */
+  will-change: transform; /* アニメーションのパフォーマンス向上 */
 }
 
 .text {
   display: inline-block;
-  font-size: 40px;
-  color: rgba(255, 255,255, 0.4);
+  font-size: 32px;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.2);
+  margin-right: 10px; /* テキスト間のスペース */
 }
