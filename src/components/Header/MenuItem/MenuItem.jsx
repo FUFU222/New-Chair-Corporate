@@ -19,18 +19,16 @@ const variants = {
   }
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
-const menuContent = ["Home", "About", "Performance", "Team", "News", "Company"];
+const menuContent = ["Home", "About", "TrackRecord", "Team", "News", "Company"];
 
 export default function MenuItem({ i }) {
-  const style =  { border: `2px solid ${colors[i]}` };
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <p className={styles.textPlaceholder} style={style}>
+      <p className={styles.textPlaceholder}>
         {menuContent[i]}
       </p>
     </motion.li>

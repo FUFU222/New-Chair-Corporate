@@ -22,12 +22,15 @@ body {
 html {
   /* justify-content: center;
   align-items: center; */
+  
 }
 
 body {
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
+  background: rgb(96,4,4);
+  background: linear-gradient(115deg, rgba(96,4,4,1) 0%, rgba(180,81,81,1) 55%, rgba(255,255,255,1) 100%);
 }
 section {
   height: 100vh;
@@ -99,4 +102,21 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@keyframes fadeInFloat {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* 初期位置を下げる */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* 元の位置に戻る */
+  }
+}
+
+.fade-in-float {
+  animation: fadeInFloat 1s ease-in-out;
+  opacity: 0; /* アニメーションが始まる前は透明 */
+  transform: translateY(20px); /* 初期位置を合わせる */
 }

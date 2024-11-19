@@ -1,0 +1,17 @@
+/* styles/MarqueeText.module.css */
+.backgroundTextContainer {
+  position: fixed;
+  top: 27%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.backgroundTextContent {
+  display: inline-block;
+}
+
+.text {
+  display: inline-block;
+  font-size: 40px;
+  color: rgba(255, 255,255, 0.4);
+}

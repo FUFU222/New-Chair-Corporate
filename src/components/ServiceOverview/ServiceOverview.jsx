@@ -1,22 +1,34 @@
-"use client"
+"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useInView } from "react-intersection-observer";
 
+import { useLogo } from "@/src/context/LogoContext";
 import styles from "./ServiceOverview.module.css";
-import Title from "../Title/Title"
+import Title from "../Title/Title";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ServiceOverview({sectionData}) {
+export default function ServiceOverview({ sectionData = [] }) {
   const listWrapperRef = useRef(null);
   const listRef = useRef(null);
+
+  const { setLogo } = useLogo();
+  const { ref } = useInView({
+    threshold: 0.5,
+    onChange: (inView) => {
+      if (typeof window !== "undefined" && inView) {
+        setLogo("/images/companyLogo.png");
+      }
+    },
+  });
 
   useEffect(() => {
     const listWrapperEl = listWrapperRef.current;
     const listEl = listRef.current;
-    
+
     if (listWrapperEl && listEl) {
       gsap.to(listEl, {
         x: () => -(listEl.clientWidth - listWrapperEl.clientWidth),
@@ -35,13 +47,15 @@ export default function ServiceOverview({sectionData}) {
   }, []);
 
   return (
-    <section>
-      <Title sectionId={1}/>
+    <section ref={ref}>
+      <Title sectionId={1} />
       <div ref={listWrapperRef} className={styles.scrollListWrapper}>
         <ul ref={listRef} className={styles.scrollList}>
-          <li className={styles.scrollItem}>Card</li>
-          <li className={styles.scrollItem}>Card</li>
-          <li className={styles.scrollItem}>Card</li>
+          {sectionData.map((item, index) => (
+            <li key={index} className={styles.scrollItem}>
+              {item}
+            </li>
+          ))}
         </ul>
       </div>
     </section>

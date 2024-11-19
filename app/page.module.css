@@ -5,6 +5,7 @@
   padding: 0 20px;
   max-width: 2400px;
   margin: 0 auto;
+  background: linear-gradient(115deg, rgb(108, 31, 31) 0%, rgba(180,81,81,1) 75%, rgb(255, 188, 5) 100%);
 }
 
 .page > *:not(:last-child) {

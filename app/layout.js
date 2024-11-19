@@ -1,7 +1,7 @@
 import SmoothScroller from "@/src/components/Lenis/Lenis";
-
 import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
+import { LogoProvider } from "@/src/context/LogoContext";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import "../src/styles/globals.css";
 
@@ -21,10 +21,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <body className={ZenKakuGothicNew.className}>
-        <SmoothScroller />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LogoProvider>
+          <SmoothScroller />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LogoProvider>
       </body>
     </html>
   );

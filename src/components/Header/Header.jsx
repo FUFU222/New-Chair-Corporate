@@ -1,11 +1,12 @@
 "use client"
 
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useCycle } from "framer-motion";
 import { useDimensions } from "./use-dimensions"
 import Image from "next/image";
 import Link from "next/link";
 
+import { useLogo } from "@/src/context/LogoContext";
 import MenuToggle from "./MenuToggle/MenuToggle";
 import Navigation from "./Navigation/Navigation";
 
@@ -14,12 +15,12 @@ import styles from "./Header.module.css";
 const sidebar = {
   open: (height = 1000) => {
     let clipPosition, sizeAdjustment;
-
-    if (window.innerWidth <= 512) {
+    
+    if (typeof window !== "undefined" && window.innerWidth <= 512) {
       // スマートフォン
       clipPosition = "calc(100%  - 48px) 52px";
       sizeAdjustment = 800;
-    } else if (window.innerWidth <= 1024) {
+    } else if (typeof window !== "undefined" && window.innerWidth <= 1024) {
       // タブレット
       clipPosition = "calc(100%  - 54px) 52px";
       sizeAdjustment = 1200;
@@ -33,7 +34,7 @@ const sidebar = {
       clipPath: `circle(${height * 2 + sizeAdjustment}px at ${clipPosition})`,
       transition: {
         type: "spring",
-        stiffness: 80,
+        stiffness: 180,
         restDelta: 2,
       },
     };
@@ -41,10 +42,10 @@ const sidebar = {
   closed: () => {
     let clipPosition;
 
-    if (window.innerWidth <= 512) {
+    if (typeof window !== "undefined" && window.innerWidth <= 512) {
       // スマートフォン
       clipPosition = "calc(100%  - 48px) 52px";
-    } else if (window.innerWidth <= 1024) {
+    } else if (typeof window !== "undefined" && window.innerWidth <= 1024) {
       // タブレット
       clipPosition = "calc(100%  - 54px) 52px";
     } else {
@@ -55,10 +56,10 @@ const sidebar = {
     return {
       clipPath: `circle(24px at ${clipPosition})`,
       transition: {
-        delay: 0.5,
+        delay: 0.4,
         type: "spring",
-        stiffness: 300,
-        damping: 40,
+        stiffness: 190,
+        damping: 28,
       },
     };
   },
@@ -73,6 +74,7 @@ export default function Header() {
   const { scrollY } = useScroll();
   const lastScrollY = useRef(0); 
 
+  const { logo } = useLogo();
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
       if (lastScrollY.current < latest) {
@@ -95,10 +97,9 @@ export default function Header() {
     >
       <Link href="#">
         <Image
-          src="/images/companyLogo.png"
+          src= { logo }
           alt="株式会社CHAIRMANのロゴ"
-          width={200}
-          height={40}
+          width={200} height={40}
           priority
         />
       </Link>

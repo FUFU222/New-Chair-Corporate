@@ -2,33 +2,28 @@
   height: 100vh;
   width: 100vw;
   padding: 0 20px;
-  border-bottom-right-radius: 20%;
-  border-bottom-left-radius: 20%;
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(96,4,4);
-  background: linear-gradient(115deg, rgba(96,4,4,1) 0%, rgba(180,81,81,1) 55%, rgba(255,255,255,1) 100%);
 }
 
 .textContainer {
   text-align: center;
-  margin-top: 224px;
-  transform: translateX(-296px);
-  /* padding-left: 20%; */
+  margin-top: 256px;
   width: 680px;
   font-family: serif;
+  z-index: 10;
 }
 
 .companyName {
   font-size: 7rem;
   font-weight: bold;
+  line-height: 1.2em;
   margin: 0;
   color:#fcfcfc;
   position: relative;
-  z-index: 10;
 }
 
 .companyDescription {
@@ -37,7 +32,6 @@
   text-align: left;
   padding-left: 8px;
   position: relative;
-  z-index: 10;
 }
 
 .phoneContainer {
@@ -71,7 +65,6 @@
   width: 100%;
   height: 100%;
   aspect-ratio: 9 / 16;
-  z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,15 +83,17 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .heroContainer {
     align-items: end;
   }
   .textContainer {
     text-align: center;
+    transform: translateY(0);
     width: 490px;
+    margin-top: 0;
     padding-left: 0;
-    padding-bottom: 200px;
+    padding-bottom: 312px;
   }
   .companyName {
     font-size: 5rem;
@@ -111,10 +106,40 @@
     margin: 0 auto;
     width: 366px;
     height: 560px;
+    z-index: 0;
   }
   .video {
     width: 280px;
     height: 540px;
   }
+}
 
+@media screen and (max-width: 520px) {
+  .heroContainer {
+    padding: 0 8px;
+  }
+  .textContainer {
+    width: 100%;
+    padding-bottom: 60px;
+  }
+  .companyName {
+    font-size: 4rem;
+  }
+  .companyDescription {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-left: 0;
+    margin-bottom: 4px;
+  }
+  .phoneContainer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 390PX) {
+  .companyName {
+    font-size: 3.6rem;
+  }
 }
