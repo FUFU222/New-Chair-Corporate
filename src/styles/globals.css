@@ -117,6 +117,6 @@ ul {
 
 .fade-in-float {
   animation: fadeInFloat 1s ease-in-out;
-  opacity: 0; /* アニメーションが始まる前は透明 */
-  transform: translateY(20px); /* 初期位置を合わせる */
+  opacity: 0;
+  transform: translateY(20px);
 }

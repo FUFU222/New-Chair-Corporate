@@ -28,12 +28,11 @@ const BackgroundText = () => {
   }
 
   const text = "CHAIRMAN";
-  const repeatCount = 30; // テキストの繰り返し数を指定
+  const repeatCount = 30;
 
   return (
     <div className={styles.backgroundTextContainer}>
       <motion.div className={styles.backgroundTextContent} animate={controls}>
-        {/* テキストを複製してスムーズなループを実現 */}
         {[...Array(repeatCount)].map((_, index) => (
           <span key={index} className={styles.text}>
             {text}

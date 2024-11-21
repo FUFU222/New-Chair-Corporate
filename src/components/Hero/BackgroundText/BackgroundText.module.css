@@ -6,16 +6,14 @@
   white-space: nowrap;
   transform: rotate(-4deg);
 }
-
 .backgroundTextContent {
-  display: inline-flex; /* 複数のテキストを横並び */
-  will-change: transform; /* アニメーションのパフォーマンス向上 */
+  display: inline-flex;
+  will-change: transform;
 }
-
 .text {
   display: inline-block;
   font-size: 32px;
   font-family: monospace;
   color: rgba(255, 255, 255, 0.2);
-  margin-right: 10px; /* テキスト間のスペース */
+  margin-right: 10px;
 }
