@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   transition: transform 0.2s ease;
-  z-index: 100;
+  z-index: 10;
 }
 
 .header.hidden {
@@ -118,10 +118,14 @@
 
 }
 
-@media (max-width: 512px) {
+@media (max-width: 520px) {
+  .header {
+    min-height: 80px;
+    padding: 1rem 1rem;
+  }
   .header button {
-    top: 24px;
-    right:20px;
+    top: 14px;
+    right:14px;
     width: 64px;
     height: 64px;
   }

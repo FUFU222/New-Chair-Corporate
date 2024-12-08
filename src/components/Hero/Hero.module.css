@@ -10,11 +10,12 @@
 }
 @media screen and (max-width: 1024px) {
   .heroContainer {
-    align-items: end;
+    /* align-items: end; */
   }
 }
 @media screen and (max-width: 520px) {
   .heroContainer {
     padding: 0 8px;
+    align-items: end;
   }
 }

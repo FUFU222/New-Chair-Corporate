@@ -44,6 +44,7 @@
 }
 @media screen and (max-width: 1024px){
   .phoneContainer {
+    right: 12%;
     top: 20%;
     margin: 0 auto;
     width: 366px;
@@ -57,8 +58,14 @@
 }
 @media screen and (max-width: 520px){
   .phoneContainer {
+    width: 340px;
+    height: 550px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  .video {
+    width: 260px;
+    height: 528px;
   }
 }

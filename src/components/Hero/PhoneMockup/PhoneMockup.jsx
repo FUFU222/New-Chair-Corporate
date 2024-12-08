@@ -16,7 +16,7 @@ export default function PhoneMockup() {
         <div className={styles.videoContainer}>
           <video
             className={styles.video}
-            src="/videos/CHAIRMAN.mp4"
+            // src="/videos/CHAIRMAN.mp4"
             autoPlay
             muted
             loop

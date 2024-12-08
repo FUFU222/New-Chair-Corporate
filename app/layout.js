@@ -4,6 +4,7 @@ import Footer from "../src/components/Footer/Footer";
 import { LogoProvider } from "@/src/context/LogoContext";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import "../src/styles/globals.css";
+import MouseStalker from "@/src/components/MouseStalker/MouseStalker";
 
 const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
   display: 'swap',
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       <body className={ZenKakuGothicNew.className}>
         <LogoProvider>
           <SmoothScroller />
+          <MouseStalker />
           <Header />
           <main>{children}</main>
           <Footer />

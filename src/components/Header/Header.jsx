@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useCycle } from "framer-motion";
+import { motion, useScroll, useCycle, delay } from "framer-motion";
 import { useDimensions } from "./use-dimensions"
 import Image from "next/image";
 import Link from "next/link";
@@ -16,25 +16,28 @@ const sidebar = {
   open: (height = 1000) => {
     let clipPosition, sizeAdjustment;
     
-    if (typeof window !== "undefined" && window.innerWidth <= 512) {
-      // スマートフォン
-      clipPosition = "calc(100%  - 48px) 52px";
-      sizeAdjustment = 800;
-    } else if (typeof window !== "undefined" && window.innerWidth <= 1024) {
-      // タブレット
-      clipPosition = "calc(100%  - 54px) 52px";
-      sizeAdjustment = 1200;
-    } else {
-      // デスクトップ
-      clipPosition = "calc(100% - 40px) 40px";
-      sizeAdjustment = 1500;
+    if (typeof window !== "undefined") {
+      if(window.innerWidth <= 512) {
+        // スマートフォン
+        clipPosition = "calc(100%  - 42px) 42px";
+        sizeAdjustment = 800;
+      } else if (window.innerWidth <= 1024) {
+        // タブレット
+        clipPosition = "calc(100%  - 54px) 52px";
+        sizeAdjustment = 1200;
+      } else {
+        // デスクトップ
+        clipPosition = "calc(100% - 40px) 40px";
+        sizeAdjustment = 1500;
+      }
     }
 
     return {
       clipPath: `circle(${height * 2 + sizeAdjustment}px at ${clipPosition})`,
       transition: {
+        delay: 0.1,
         type: "spring",
-        stiffness: 180,
+        stiffness: 100,
         restDelta: 2,
       },
     };
@@ -42,23 +45,25 @@ const sidebar = {
   closed: () => {
     let clipPosition;
 
-    if (typeof window !== "undefined" && window.innerWidth <= 512) {
-      // スマートフォン
-      clipPosition = "calc(100%  - 48px) 52px";
-    } else if (typeof window !== "undefined" && window.innerWidth <= 1024) {
-      // タブレット
-      clipPosition = "calc(100%  - 54px) 52px";
-    } else {
-      // デスクトップ
-      clipPosition = "calc(100% - 40px) 40px";
+    if (typeof window !== "undefined") {
+      if(window.innerWidth <= 512) {
+        // スマートフォン
+        clipPosition = "calc(100%  - 42px) 42px";
+      } else if (window.innerWidth <= 1024) {
+        // タブレット
+        clipPosition = "calc(100%  - 54px) 52px";
+      } else {
+        // デスクトップ
+        clipPosition = "calc(100% - 40px) 40px";
+      }
     }
 
     return {
-      clipPath: `circle(24px at ${clipPosition})`,
+      clipPath: `circle(22px at ${clipPosition})`,
       transition: {
-        delay: 0.4,
+        delay: 0.2,
         type: "spring",
-        stiffness: 190,
+        stiffness: 200,
         damping: 28,
       },
     };
@@ -87,7 +92,6 @@ export default function Header() {
 
     return unsubscribe;
   }, [scrollY]);
-
   return (
     <motion.header
       className={styles.header}
@@ -99,7 +103,7 @@ export default function Header() {
         <Image
           src= { logo }
           alt="株式会社CHAIRMANのロゴ"
-          width={200} height={40}
+          width={60} height={60}
           priority
         />
       </Link>
