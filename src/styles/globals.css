@@ -103,7 +103,19 @@ ul {
   align-items: center;
   justify-content: center;
 }
+.page {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
 
+.section {
+  scroll-snap-align: start; 
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 @keyframes fadeInFloat {
   from {
       opacity: 0;
