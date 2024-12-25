@@ -2,12 +2,12 @@
   position: relative;
   overflow-x: hidden;
   width: 100vw;
-  height: 100vh; /* 画面全体の高さに設定 */
-  z-index: 2; /* Heroセクションより高いz-indexに設定 */
-  background-color: white; /* 背景色を白に設定 */
-  top: 100vh; /* 初期状態で画面外に配置 */
+  height: 100vh;
+  z-index: 2;
+  background-color: white;
+  top: 100vh;
+  transition: transform 0.3s ease-in-out; /* CSSでのトランジション */
 }
-
 .scrollList {
   position: absolute;
   top: 60px;

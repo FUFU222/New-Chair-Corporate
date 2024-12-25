@@ -6,7 +6,6 @@ import { useDimensions } from "./use-dimensions"
 import Image from "next/image";
 import Link from "next/link";
 
-import { useLogo } from "@/src/context/LogoContext";
 import MenuToggle from "./MenuToggle/MenuToggle";
 import Navigation from "./Navigation/Navigation";
 
@@ -79,7 +78,6 @@ export default function Header() {
   const { scrollY } = useScroll();
   const lastScrollY = useRef(0); 
 
-  const { logo } = useLogo();
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
       if (lastScrollY.current < latest) {
@@ -99,9 +97,9 @@ export default function Header() {
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3 }}
     >
-      <Link href="#">
+      <Link href="/">
         <Image
-          src= { logo }
+          src="/images/ChairLogo.png"
           alt="株式会社CHAIRMANのロゴ"
           width={60} height={60}
           priority

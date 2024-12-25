@@ -2,6 +2,7 @@ import SmoothScroller from "@/src/components/Lenis/Lenis";
 import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
 import { LogoProvider } from "@/src/context/LogoContext";
+import { ScrollSnapProvider } from "@/src/context/ScrollSnapContext";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import "../src/styles/globals.css";
 import MouseStalker from "@/src/components/MouseStalker/MouseStalker";
@@ -22,13 +23,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <body className={ZenKakuGothicNew.className}>
-        <LogoProvider>
-          <SmoothScroller />
+        <ScrollSnapProvider>
           <MouseStalker />
           <Header />
+          <SmoothScroller />
           <main>{children}</main>
           <Footer />
-        </LogoProvider>
+        </ScrollSnapProvider>
       </body>
     </html>
   );
